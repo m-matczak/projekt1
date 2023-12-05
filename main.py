@@ -1,6 +1,10 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import random
+import statistics
 
+
+filepath = "random_numbers"
 
 def ex_1():
     for i in range(1,100):
@@ -17,10 +21,29 @@ def ex_1():
             print(string)
 
 def ex_2():
-    pass
+    n = int(input("Input how many numbers to generate: "))
+
+    with open(filepath, "w") as file:
+        for _ in range(0,n):
+            r = random.randint(1,10)
+            file.write(f"{r}\n")
 
 def ex_3():
-    pass
+    lines = []
+    with open(filepath, "r") as file:
+        for line in file.readlines():
+            lines.append(int(line))
+
+
+    mean = statistics.fmean(lines)
+    stdev = statistics.stdev(lines)
+    minimum= min(lines)
+    maximum = max(lines)
+
+    print(f"mean: {mean}")
+    print(f"stdev: {stdev}")
+    print(minimum)
+    print(maximum)
 
 def ex_4(n):
     return n
