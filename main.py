@@ -36,23 +36,42 @@ def ex_3():
 
 
     mean = statistics.fmean(lines)
-    stdev = statistics.stdev(lines)
+    stdev = -1
+    if len(lines) != 1:
+        stdev = statistics.stdev(lines)
     minimum= min(lines)
     maximum = max(lines)
 
     print(f"mean: {mean}")
     print(f"stdev: {stdev}")
-    print(minimum)
-    print(maximum)
+    print(f"minimum: {minimum}")
+    print(f"maximum: {maximum}")
 
 def ex_4(n):
+    if n in {0, 1}:
+        return n
+    n = ex_4(n-1) + ex_4(n-2)
     return n
 
 def ex_5():
-    pass
+    n = int(input("Podaj liczbe n: "))
+
+    fib = []
+    for i in range(1,n):
+        fib.append(ex_4(i))
+
+    plt.plot(fib)
+    plt.ylabel("Fibonacci numbers")
+    plt.show()
 
 def ex_6():
-    pass
+    n = int(input("Podaj liczbe n: "))
+
+    d = {}
+    for i in range(1,n+1):
+        d[i] = i*i
+
+    print(d)
 
 def ex_7():
     pass
