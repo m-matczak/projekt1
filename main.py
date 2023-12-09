@@ -2,7 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import random
 import statistics
-
+from datetime import datetime
+import csv
 
 filepath = "random_numbers"
 
@@ -72,24 +73,34 @@ def ex_6():
         d[i] = i*i
 
     print(d)
+    return d
 
-def ex_7():
-    pass
+def ex_7(d):
+
+    s = 0
+    for _, v in d.items():
+        s += v
+    print(s)
 
 def ex_8():
-    pass
+    n = int(input("Podaj n liczb losowych:"))
+    for fn in range(10):
+        now = datetime.now()
+        filename = now.strftime("%Y-%m-%d_%h-%M-%S-%f")
+        with open(filename, "wb") as file:
+            random_data = np.random.rand(n)
+            file.write(bytearray(random_data))
 
 def ex_9():
     pass
-
 
 def main():
     ex_1()
     ex_2()
     ex_3()
     ex_5()
-    ex_6()
-    ex_7()
+    d = ex_6()
+    ex_7(d)
     ex_8()
     ex_9()
 
