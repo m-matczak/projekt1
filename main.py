@@ -3,7 +3,7 @@ import numpy as np
 
 from datetime import datetime
 import random
-import statistics
+import math
 
 
 filepath = "random_numbers"
@@ -39,10 +39,18 @@ def ex_3():
         for line in file.readlines():
             lines.append(int(line))
 
-    mean = statistics.fmean(lines)
-    stdev = -1
-    if len(lines) != 1:
-        stdev = statistics.stdev(lines)
+    sum = 0
+    for line in lines:
+        sum += line
+
+    mean = sum / len(lines)
+
+    variance = 0
+    for line in lines:
+        variance += (line - mean) ** 2
+
+    stdev = math.sqrt(variance / len(lines))
+
     minimum = min(lines)
     maximum = max(lines)
 
