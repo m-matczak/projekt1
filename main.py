@@ -13,19 +13,18 @@ def ex_1():
     for i in range(1, 100):
         string = ""
         if i % 3 == 0:
-            string = string + "Fizz"
+            string += "Fizz"
         if i % 5 == 0:
-            string = string + "Buzz"
+            string += "Buzz"
 
         if string == "":
             print(i)
-            continue
         else:
             print(string)
 
 
 def ex_2():
-    n = int(input("Input how many numbers to generate: "))
+    n = int(input("[Ex2] Input n how many numbers to generate: "))
 
     with open(filepath, "w") as file:
         for _ in range(0, n):
@@ -54,6 +53,7 @@ def ex_3():
     minimum = min(lines)
     maximum = max(lines)
 
+    print("[Ex3]:")
     print(f"mean: {mean}")
     print(f"stdev: {stdev}")
     print(f"minimum: {minimum}")
@@ -68,19 +68,19 @@ def ex_4(n):
 
 
 def ex_5():
-    n = int(input("Podaj liczbe n: "))
+    n = int(input("[Ex5] Input n: "))
 
     fib = []
-    for i in range(1, n):
+    for i in range(1, n+1):
         fib.append(ex_4(i))
 
     plt.plot(fib)
-    plt.ylabel("Fibonacci numbers")
+    plt.title("Fibonacci numbers")
     plt.show()
 
 
 def ex_6():
-    n = int(input("Podaj liczbe n: "))
+    n = int(input("[Ex6] Input n: "))
 
     d = {}
     for i in range(1, n+1):
@@ -99,7 +99,7 @@ def ex_7(d):
 
 
 def ex_8():
-    n = int(input("Podaj n liczb losowych:"))
+    n = int(input("[Ex8] Input n:"))
     for _ in range(10):
         now = datetime.now()
         filename = now.strftime("%Y-%m-%d_%h-%M-%S-%f")
@@ -122,7 +122,7 @@ def ex_9():
     z = data[1:-1, 3]
 
     fig, axs = plt.subplots(3)
-    fig.suptitle("Pozycja w funkcji czasu")
+    fig.suptitle("Position in function of time")
 
     axs[0].plot(t, x)
     axs[1].plot(t, y)
@@ -130,8 +130,7 @@ def ex_9():
     plt.show()
 
     # srednia
-    data = np.genfromtxt('reference_trajectory.csv', delimiter=',')
-    print("Mean values of position:")
+    print("[Ex9] Mean values of position:")
     print(np.mean(data[1:-1, 1:4], axis=0))
 
     # predkosc
