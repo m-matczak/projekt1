@@ -91,11 +91,10 @@ def ex_6():
 
 
 def ex_7(d):
-
     s = 0
     for _, v in d.items():
         s += v
-    print(s)
+    print(f"[Ex7] {s}")
 
 
 def ex_8():
