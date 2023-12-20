@@ -10,7 +10,7 @@ filepath = "random_numbers"
 
 
 def ex_1():
-    for i in range(1, 100):
+    for i in range(1, 101):
         string = ""
         if i % 3 == 0:
             string += "Fizz"
