@@ -6,6 +6,10 @@ import random
 import math
 
 
+# Poprawność zadań: 10.5/11
+# Dodatki: 2/2
+# Znormalizowane: 0,9615384615
+
 filepath = "random_numbers"
 
 
